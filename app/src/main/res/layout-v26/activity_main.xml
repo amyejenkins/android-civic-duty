@@ -8,7 +8,7 @@
         tools:context=".MainActivity">
 
     <EditText
-            android:id="@+id/address"
+            android:id="@+id/address_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hello World!"
@@ -20,11 +20,12 @@
             android:inputType="text"/>
 
     <Button
+            android:id="@+id/address_submit_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_submit"
-            app:layout_constraintLeft_toLeftOf="@id/address"
-            app:layout_constraintRight_toRightOf="@id/address"
-            app:layout_constraintTop_toBottomOf="@+id/address"/>
+            app:layout_constraintLeft_toLeftOf="@id/address_text"
+            app:layout_constraintRight_toRightOf="@id/address_text"
+            app:layout_constraintTop_toBottomOf="@+id/address_text"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
