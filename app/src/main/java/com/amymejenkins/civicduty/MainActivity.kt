@@ -1,13 +1,16 @@
 package com.amymejenkins.civicduty
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 
+
+
 const val ADDRESS = "com.amymejenkins.civicduty.ADDRESS"
+const val ADDRESS_CODE = 0
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,19 +18,33 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var addressSubmitButton: Button = findViewById(R.id.address_submit_button)
+        val addressEditButton: Button = findViewById(R.id.address_edit_button)
 
-        addressSubmitButton.setOnClickListener {
-            editText(it)
+        addressEditButton.setOnClickListener {
+            openEditText()
         }
     }
 
-    fun editText(view: View) {
-        var addressTextView: TextView = findViewById(R.id.address_text)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode) {
+            ADDRESS_CODE -> {
+                if (resultCode == Activity.RESULT_OK) {
+                    val newText = data!!.getStringExtra(ADDRESS)
+                    val addressTextView = findViewById<TextView>(R.id.address_text)
+
+                    addressTextView.text = newText
+                }
+            }
+        }
+    }
+
+    fun openEditText() {
+        val addressTextView: TextView = findViewById(R.id.address_text)
         val address = addressTextView.text.toString()
         val intent = Intent(this, EditAddressActivity::class.java).apply {
             putExtra(ADDRESS, address)
         }
-        startActivity(intent)
+        startActivityForResult(intent, ADDRESS_CODE)
     }
 }
