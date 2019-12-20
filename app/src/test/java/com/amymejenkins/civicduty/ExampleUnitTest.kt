@@ -1,4 +1,4 @@
-package nyc.ignitelabs.civicduty
+package com.amymejenkins.civicduty
 
 import org.junit.Test
 

@@ -8,7 +8,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "nyc.ignitelabs.civicduty"
+        applicationId "com.amymejenkins.civicduty"
         minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
@@ -26,7 +26,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    def appCompatVersion = "1.2.0-alpha01" // do not update until https://issuetracker.google.com/issues/141132133 has been fixed
+    def appCompatVersion = "1.2.0-alpha01"
+    // do not update until https://issuetracker.google.com/issues/141132133 has been fixed
     def cardViewVersion = "1.0.0"
     def constraintLayoutVersion = "1.1.3"
     def leakCanaryVersion = "2.0-beta-2"
@@ -38,6 +39,8 @@ dependencies {
 
     implementation "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}"
 
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

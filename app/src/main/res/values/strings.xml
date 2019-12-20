@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Civic Duty</string>
     <string name="button_submit">Submit</string>
+    <string name="button_edit">Edit</string>
+    <string name="edit_address">Edit Address</string>
+    <string name="address">Address</string>
 </resources>
