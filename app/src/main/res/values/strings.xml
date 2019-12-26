@@ -4,4 +4,6 @@
     <string name="button_edit">Edit</string>
     <string name="edit_address">Edit Address</string>
     <string name="address">Address</string>
+    <string name="error_message">Alert Problems Oy Vey</string>
+    <string name="action_ok">Ok...</string>
 </resources>
