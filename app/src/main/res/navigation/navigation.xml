@@ -23,4 +23,9 @@
             android:id="@+id/action_editFragment_to_displayFragment"
             app:destination="@id/displayFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.amymejenkins.civicduty.AboutFragment"
+        android:label="@string/about_civic_duty"
+        tools:layout="@layout/fragment_about" />
 </navigation>

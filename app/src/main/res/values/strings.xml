@@ -13,5 +13,6 @@
 
     <!-- ERROR DIALOG -->
     <string name="error_message">Alert Problems Oy Vey</string>
-    <string name="action_ok">Ok...</string>
+    <string name="action_ok">OK…</string>
+    <string name="about_civic_duty">About Civic Duty</string>
 </resources>
