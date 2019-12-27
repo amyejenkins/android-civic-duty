@@ -1,5 +1,6 @@
 <resources>
     <string name="title_app_name">Civic Duty</string>
+    <string name="share_address_text">This is my address: %1$s</string>
 
     <!-- Buttons -->
     <string name="button_submit">Submit</string>
@@ -15,4 +16,5 @@
     <string name="error_message">Alert Problems Oy Vey</string>
     <string name="action_ok">OK…</string>
     <string name="about_civic_duty">About Civic Duty</string>
+    <string name="share_address">Share Address</string>
 </resources>
