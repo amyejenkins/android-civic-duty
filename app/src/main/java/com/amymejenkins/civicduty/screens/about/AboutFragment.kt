@@ -1,4 +1,4 @@
-package com.amymejenkins.civicduty
+package com.amymejenkins.civicduty.screens.about
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.amymejenkins.civicduty.R
 import com.amymejenkins.civicduty.databinding.FragmentAboutBinding
 
 class AboutFragment : Fragment() {
@@ -15,7 +16,8 @@ class AboutFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentAboutBinding>(inflater, R.layout.fragment_about, container, false)
+        val binding = DataBindingUtil.inflate<FragmentAboutBinding>(inflater,
+            R.layout.fragment_about, container, false)
         return binding.root
     }
 }

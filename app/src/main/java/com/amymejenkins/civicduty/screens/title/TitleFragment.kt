@@ -1,4 +1,4 @@
-package com.amymejenkins.civicduty
+package com.amymejenkins.civicduty.screens.title
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,18 +10,17 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-import com.amymejenkins.civicduty.databinding.FragmentDisplayBinding
+import com.amymejenkins.civicduty.R
+import com.amymejenkins.civicduty.ViewModel
+import com.amymejenkins.civicduty.databinding.FragmentTitleBinding
 
-class DisplayFragment : Fragment() {
+class TitleFragment : Fragment() {
     private val vm: ViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val binding = DataBindingUtil.inflate<FragmentDisplayBinding>(inflater, R.layout.fragment_display, container, false)
-
-        binding.addressEditButton.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_displayFragment_to_editFragment)
-        )
+        val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater,
+            R.layout.fragment_title, container, false)
 
         binding.addressText.text = vm.address
 

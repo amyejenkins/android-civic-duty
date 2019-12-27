@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/editFragment"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="@string/edit_address"
+        android:visible="true" />
+    <item
         android:id="@+id/share"
         android:enabled="true"
         android:icon="@android:drawable/ic_menu_share"

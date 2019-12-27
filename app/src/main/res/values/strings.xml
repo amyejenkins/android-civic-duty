@@ -16,5 +16,7 @@
     <string name="error_message">Alert Problems Oy Vey</string>
     <string name="action_ok">OK…</string>
     <string name="about_civic_duty">About Civic Duty</string>
+    <string name="about_text"> For any U.S. residential address, you can look up who represents that address at each elected level of government. During supported elections, you can also look up polling places, early vote location, candidate data, and other election official information.</string>
     <string name="share_address">Share Address</string>
+    <string name="lookup_button">Lookup Information</string>
 </resources>

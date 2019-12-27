@@ -7,16 +7,16 @@
 
     <fragment
         android:id="@+id/displayFragment"
-        android:name="com.amymejenkins.civicduty.DisplayFragment"
+        android:name="com.amymejenkins.civicduty.screens.title.TitleFragment"
         android:label="@string/title_app_name"
-        tools:layout="@layout/fragment_display" >
+        tools:layout="@layout/fragment_title" >
         <action
             android:id="@+id/action_displayFragment_to_editFragment"
             app:destination="@id/editFragment" />
     </fragment>
     <fragment
         android:id="@+id/editFragment"
-        android:name="com.amymejenkins.civicduty.EditFragment"
+        android:name="com.amymejenkins.civicduty.screens.edit.EditFragment"
         android:label="@string/title_edit_information"
         tools:layout="@layout/fragment_edit" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.amymejenkins.civicduty.AboutFragment"
+        android:name="com.amymejenkins.civicduty.screens.about.AboutFragment"
         android:label="@string/about_civic_duty"
         tools:layout="@layout/fragment_about" />
 </navigation>

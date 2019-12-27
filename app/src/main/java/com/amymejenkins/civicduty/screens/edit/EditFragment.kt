@@ -1,4 +1,4 @@
-package com.amymejenkins.civicduty
+package com.amymejenkins.civicduty.screens.edit
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import com.amymejenkins.civicduty.R
+import com.amymejenkins.civicduty.ViewModel
 import com.amymejenkins.civicduty.databinding.FragmentEditBinding
 
 
@@ -21,7 +23,8 @@ class EditFragment : Fragment() {
     ): View? {
         super.onCreate(savedInstanceState)
 
-        val binding = DataBindingUtil.inflate<FragmentEditBinding>(inflater, R.layout.fragment_edit, container, false)
+        val binding = DataBindingUtil.inflate<FragmentEditBinding>(inflater,
+            R.layout.fragment_edit, container, false)
         binding.addressText.setText(vm.address)
 
         binding.addressSubmitButton.setOnClickListener{ view: View ->
