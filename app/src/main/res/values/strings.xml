@@ -1,9 +1,17 @@
 <resources>
-    <string name="app_name">Civic Duty</string>
+    <string name="title_app_name">Civic Duty</string>
+
+    <!-- Buttons -->
     <string name="button_submit">Submit</string>
     <string name="button_edit">Edit</string>
+
+    <!-- Edit Page -->
+    <string name="title_edit_information">Edit Information</string>
     <string name="edit_address">Edit Address</string>
     <string name="address">Address</string>
+
+
+    <!-- ERROR DIALOG -->
     <string name="error_message">Alert Problems Oy Vey</string>
     <string name="action_ok">Ok...</string>
 </resources>

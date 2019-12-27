@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/displayFragment"
         android:name="com.amymejenkins.civicduty.DisplayFragment"
-        android:label="fragment_display"
+        android:label="@string/title_app_name"
         tools:layout="@layout/fragment_display" >
         <action
             android:id="@+id/action_displayFragment_to_editFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/editFragment"
         android:name="com.amymejenkins.civicduty.EditFragment"
-        android:label="fragment_edit"
+        android:label="@string/title_edit_information"
         tools:layout="@layout/fragment_edit" >
         <action
             android:id="@+id/action_editFragment_to_displayFragment"
