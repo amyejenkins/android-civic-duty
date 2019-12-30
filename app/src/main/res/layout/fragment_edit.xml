@@ -4,6 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.amymejenkins.civicduty.screens.edit.EditFragment">
+    
+    <data>
+        <variable
+            name="editViewModel"
+            type="com.amymejenkins.civicduty.screens.edit.EditViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -33,6 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/button_submit"
+            android:onClick="@{() -> editViewModel.updateAddress()}"
             app:layout_constraintHorizontal_bias="0.052"
             app:layout_constraintLeft_toLeftOf="@id/address_edit_text_layout"
             app:layout_constraintRight_toRightOf="@id/address_edit_text_layout"

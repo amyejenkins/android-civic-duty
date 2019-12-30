@@ -6,23 +6,23 @@ import android.view.*
 import androidx.core.app.ShareCompat
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.amymejenkins.civicduty.R
-import com.amymejenkins.civicduty.ViewModel
 import com.amymejenkins.civicduty.databinding.FragmentTitleBinding
 
 class TitleFragment : Fragment() {
-    private val vm: ViewModel by activityViewModels()
+    private lateinit var vm: TitleViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater,
             R.layout.fragment_title, container, false)
 
-        binding.addressEditText.text = vm.address
+        vm = ViewModelProviders.of(this).get(TitleViewModel::class.java)
+
+        binding.addressEditText.text = vm.address.value
 
         // tell Android that our TitleFragment has a menu
         setHasOptionsMenu(true)

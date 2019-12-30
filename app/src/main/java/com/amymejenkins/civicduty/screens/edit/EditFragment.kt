@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import com.amymejenkins.civicduty.R
 import com.amymejenkins.civicduty.databinding.FragmentEditBinding
 
@@ -29,15 +29,17 @@ class EditFragment : Fragment() {
         )
 
         vm = ViewModelProviders.of(this).get(EditViewModel::class.java)
+        binding.editViewModel = vm
 
         vm.address.observe(this, Observer { newAddress ->
             binding.addressEditText.setText(newAddress)
         })
 
-        binding.addressSubmitButton.setOnClickListener { view: View ->
-            vm.address.value = binding.addressEditText.text.toString()
-            view.findNavController().navigate(R.id.action_editFragment_to_displayFragment)
-        }
+        vm.eventAddressUpdated.observe(this, Observer { addressUpdated ->
+            if (addressUpdated) {
+                NavHostFragment.findNavController(this).navigate(R.id.action_editFragment_to_displayFragment)
+            }
+        })
 
         return binding.root
     }
