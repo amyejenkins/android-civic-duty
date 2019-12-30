@@ -14,30 +14,26 @@ import com.amymejenkins.civicduty.databinding.FragmentEditBinding
 
 
 class EditFragment : Fragment() {
-
     private lateinit var vm: EditViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        super.onCreate(savedInstanceState)
+
+        vm = ViewModelProviders.of(this).get(EditViewModel::class.java)
 
         val binding = DataBindingUtil.inflate<FragmentEditBinding>(
             inflater,
             R.layout.fragment_edit, container, false
         )
-
-        vm = ViewModelProviders.of(this).get(EditViewModel::class.java)
         binding.editViewModel = vm
-
-        vm.address.observe(this, Observer { newAddress ->
-            binding.addressEditText.setText(newAddress)
-        })
+        binding.lifecycleOwner = this
 
         vm.eventAddressUpdated.observe(this, Observer { addressUpdated ->
             if (addressUpdated) {
-                NavHostFragment.findNavController(this).navigate(R.id.action_editFragment_to_displayFragment)
+                NavHostFragment.findNavController(this)
+                    .navigate(R.id.action_editFragment_to_displayFragment)
             }
         })
 
