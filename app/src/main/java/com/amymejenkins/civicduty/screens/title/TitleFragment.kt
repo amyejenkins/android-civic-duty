@@ -22,7 +22,7 @@ class TitleFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater,
             R.layout.fragment_title, container, false)
 
-        binding.addressText.text = vm.address
+        binding.addressEditText.text = vm.address
 
         // tell Android that our TitleFragment has a menu
         setHasOptionsMenu(true)
