@@ -3,8 +3,11 @@ package com.amymejenkins.civicduty.screens.edit
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.amymejenkins.civicduty.database.UserInfoDao
 
-class EditViewModel : ViewModel() {
+class EditViewModel(
+    val database: UserInfoDao
+) : ViewModel() {
 
     private var _address = MutableLiveData<String>()
     val address: LiveData<String>

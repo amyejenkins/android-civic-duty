@@ -10,27 +10,33 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.NavHostFragment
 import com.amymejenkins.civicduty.R
+import com.amymejenkins.civicduty.database.UserInfoDatabase
 import com.amymejenkins.civicduty.databinding.FragmentEditBinding
 
 
 class EditFragment : Fragment() {
-    private lateinit var vm: EditViewModel
+    private lateinit var viewModel: EditViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val application = requireNotNull(this.activity).application
 
-        vm = ViewModelProviders.of(this).get(EditViewModel::class.java)
+        val dataSource = UserInfoDatabase.getInstance(application).userInfoDao
+
+        val viewModelFactory = EditViewModelFactory(dataSource)
+
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(EditViewModel::class.java)
 
         val binding = DataBindingUtil.inflate<FragmentEditBinding>(
             inflater,
             R.layout.fragment_edit, container, false
         )
-        binding.editViewModel = vm
+        binding.editViewModel = viewModel
         binding.lifecycleOwner = this
 
-        vm.eventAddressUpdated.observe(this, Observer { addressUpdated ->
+        viewModel.eventAddressUpdated.observe(this, Observer { addressUpdated ->
             if (addressUpdated) {
                 NavHostFragment.findNavController(this)
                     .navigate(R.id.action_editFragment_to_displayFragment)
