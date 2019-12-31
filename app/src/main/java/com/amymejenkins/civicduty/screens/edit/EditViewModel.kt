@@ -14,8 +14,8 @@ class EditViewModel : ViewModel() {
     val eventAddressUpdated: LiveData<Boolean>
         get() = _eventAddressUpdated
 
-    fun updateAddress(updatedAddress: String) {
-        _address.value = updatedAddress
+    fun updateAddress() {
+//        _address.value = updatedAddress
         _eventAddressUpdated.value = true
     }
 }
