@@ -29,23 +29,31 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    def appCompatVersion = "1.2.0-alpha01"
-    // do not update until https://issuetracker.google.com/issues/141132133 has been fixed
+    def appCompatVersion = "1.2.0-alpha01" // do not update until https://issuetracker.google.com/issues/141132133 has been fixed
     def cardViewVersion = "1.0.0"
     def constraintLayoutVersion = "1.1.3"
     def leakCanaryVersion = "2.0-beta-2"
+    def roomVersion = "2.2.3"
+    def lifecycleExtensionsVersion = "2.0.0"
 
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlin_version}"
-    implementation "androidx.appcompat:appcompat:${appCompatVersion}"
 
+    // Support Libraries
+    implementation "androidx.appcompat:appcompat:${appCompatVersion}"
     implementation "androidx.cardview:cardview:${cardViewVersion}"
     implementation "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}"
+
+    // Room and Lifecycle Extensions
+    implementation "androidx.room:room-runtime:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensionsVersion"
+
+    // Navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
 
+    // Testing
     implementation "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
