@@ -10,19 +10,29 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.amymejenkins.civicduty.R
+import com.amymejenkins.civicduty.database.UserInfoDatabase
 import com.amymejenkins.civicduty.databinding.FragmentTitleBinding
+import com.amymejenkins.civicduty.screens.edit.TitleViewModelFactory
 
 class TitleFragment : Fragment() {
-    private lateinit var vm: TitleViewModel
+    private lateinit var viewModel: TitleViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
+        val application = requireNotNull(this.activity).application
+
+        val dataSource = UserInfoDatabase.getInstance(application).userInfoDao
+
+        val titleModelFactory = TitleViewModelFactory(dataSource)
+
+        viewModel = ViewModelProviders.of(this, titleModelFactory).get(TitleViewModel::class.java)
+
         val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater,
             R.layout.fragment_title, container, false)
 
-        vm = ViewModelProviders.of(this).get(TitleViewModel::class.java)
-
-        binding.addressEditText.text = vm.address.value
+        binding.titleViewModel = viewModel
+        binding.lifecycleOwner = this
 
         // tell Android that our TitleFragment has a menu
         setHasOptionsMenu(true)
@@ -50,7 +60,7 @@ class TitleFragment : Fragment() {
 
     private fun getShareIntent() : Intent {
         return ShareCompat.IntentBuilder.from(activity)
-            .setText(getString(R.string.share_address_text, vm.address))
+            .setText(getString(R.string.share_address_text, viewModel.address))
             .setType("text/plain")
             .intent
     }

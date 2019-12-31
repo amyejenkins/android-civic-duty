@@ -5,6 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.amymejenkins.civicduty.screens.title.TitleFragment">
 
+    <data>
+
+        <variable
+            name="titleViewModel"
+            type="com.amymejenkins.civicduty.screens.title.TitleViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:importantForAutofill="no"
-            android:text="Hello World!"
+            android:text="@{titleViewModel.address}"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.417"
