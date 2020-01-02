@@ -1,6 +1,5 @@
 package com.amymejenkins.civicduty.screens.display
 
-import android.provider.SyncStateContract.Helpers.insert
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,24 +18,34 @@ class DisplayViewModel(
     val user: LiveData<UserInfo>
         get() = _user
 
-//    val addressString = Transformations.map(_user) { user ->
-//        user.address
-//    }
-
     init {
-//        _address.value = "115 Main Street, Anytown NW 00000"
         initializeUser()
     }
 
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel() // cancel all coroutines.
+    }
 
     private fun initializeUser() {
         uiScope.launch {
-            _user.value = getUserFromDatabase()
-        }
+            _user.value = getMostRecentUser()
 
+            if (_user.value == null) {
+                val newUser = UserInfo(address = "start address!!!")
+                insert(newUser)
+                _user.value = getMostRecentUser()
+            }
+        }
     }
 
-    private suspend fun getUserFromDatabase(): UserInfo? {
+    private suspend fun insert(user: UserInfo) {
+        withContext(Dispatchers.IO) {
+            database.insert(user)
+        }
+    }
+
+    private suspend fun getMostRecentUser(): UserInfo? {
         return withContext(Dispatchers.IO) {
             database.getMostRecentUser()
         }
