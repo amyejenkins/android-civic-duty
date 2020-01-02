@@ -15,9 +15,12 @@ interface UserInfoDao {
     @Update
     fun update(user: UserInfo)
 
-    @Query("SELECT * FROM USER_INFO_TABLE WHERE userId = :key")
+    @Query("SELECT * FROM user_info_table WHERE userId = :key")
     fun getUser(key: Long): UserInfo
 
+    @Query("SELECT * FROM user_info_table ORDER BY userId DESC LIMIT 1")
+    fun getMostRecentUser(): UserInfo
+
     @Query("SELECT * FROM user_info_table ORDER BY address ASC")
-    fun getAll(): LiveData<List<UserInfo>>
+    fun getAllUsers(): LiveData<List<UserInfo>>
 }

@@ -40,7 +40,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/button_submit"
-            android:onClick="@{() -> editViewModel.updateAddress()}"
             app:layout_constraintHorizontal_bias="0.052"
             app:layout_constraintLeft_toLeftOf="@id/address_edit_text_layout"
             app:layout_constraintRight_toRightOf="@id/address_edit_text_layout"

@@ -60,7 +60,7 @@ class TitleFragment : Fragment() {
 
     private fun getShareIntent() : Intent {
         return ShareCompat.IntentBuilder.from(activity)
-            .setText(getString(R.string.share_address_text, viewModel.address))
+            .setText(getString(R.string.share_address_text, "My address ?"))
             .setType("text/plain")
             .intent
     }
