@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/displayFragment"
-        android:name="com.amymejenkins.civicduty.screens.title.TitleFragment"
+        android:name="com.amymejenkins.civicduty.screens.display.DisplayFragment"
         android:label="@string/title_app_name"
-        tools:layout="@layout/fragment_title" >
+        tools:layout="@layout/fragment_display" >
         <action
             android:id="@+id/action_displayFragment_to_editFragment"
             app:destination="@id/editFragment" />

@@ -3,13 +3,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.amymejenkins.civicduty.screens.title.TitleFragment">
+    tools:context="com.amymejenkins.civicduty.screens.display.DisplayFragment">
 
     <data>
 
         <variable
-            name="titleViewModel"
-            type="com.amymejenkins.civicduty.screens.title.TitleViewModel" />
+            name="displayViewModel"
+            type="com.amymejenkins.civicduty.screens.display.DisplayViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

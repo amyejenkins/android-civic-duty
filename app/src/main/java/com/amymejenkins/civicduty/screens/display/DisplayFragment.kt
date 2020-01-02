@@ -1,4 +1,4 @@
-package com.amymejenkins.civicduty.screens.title
+package com.amymejenkins.civicduty.screens.display
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,11 +11,11 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.amymejenkins.civicduty.R
 import com.amymejenkins.civicduty.database.UserInfoDatabase
-import com.amymejenkins.civicduty.databinding.FragmentTitleBinding
-import com.amymejenkins.civicduty.screens.edit.TitleViewModelFactory
+import com.amymejenkins.civicduty.databinding.FragmentDisplayBinding
+import com.amymejenkins.civicduty.screens.edit.DisplayViewModelFactory
 
-class TitleFragment : Fragment() {
-    private lateinit var viewModel: TitleViewModel
+class DisplayFragment : Fragment() {
+    private lateinit var viewModel: DisplayViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -24,22 +24,22 @@ class TitleFragment : Fragment() {
 
         val dataSource = UserInfoDatabase.getInstance(application).userInfoDao
 
-        val titleModelFactory = TitleViewModelFactory(dataSource)
+        val displayModelFactory = DisplayViewModelFactory(dataSource)
 
-        viewModel = ViewModelProviders.of(this, titleModelFactory).get(TitleViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, displayModelFactory).get(DisplayViewModel::class.java)
 
-        val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater,
-            R.layout.fragment_title, container, false)
+        val binding = DataBindingUtil.inflate<FragmentDisplayBinding>(inflater,
+            R.layout.fragment_display, container, false)
 
-        binding.titleViewModel = viewModel
+        binding.displayViewModel = viewModel
         binding.lifecycleOwner = this
 
         binding.editInfoButton.setOnClickListener{
-            val action = TitleFragmentDirections.actionDisplayFragmentToEditFragment(1)
+            val action = DisplayFragmentDirections.actionDisplayFragmentToEditFragment(1)
             it.findNavController().navigate(action)
         }
 
-        // tell Android that our TitleFragment has a menu
+        // tell Android that our DisplayFragment has a menu
         setHasOptionsMenu(true)
 
         return binding.root

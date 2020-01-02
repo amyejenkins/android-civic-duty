@@ -1,14 +1,14 @@
-package com.amymejenkins.civicduty.screens.title
+package com.amymejenkins.civicduty.screens.display
 
+import android.provider.SyncStateContract.Helpers.insert
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.amymejenkins.civicduty.database.UserInfo
 import com.amymejenkins.civicduty.database.UserInfoDao
 import kotlinx.coroutines.*
 
-class TitleViewModel(
+class DisplayViewModel(
     var database: UserInfoDao
 ): ViewModel () {
 
