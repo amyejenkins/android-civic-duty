@@ -22,11 +22,10 @@ class EditFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val application = requireNotNull(this.activity).application
-
+        val args = EditFragmentArgs.fromBundle(arguments!!)
         val dataSource = UserInfoDatabase.getInstance(application).userInfoDao
 
-        val viewModelFactory = EditViewModelFactory(dataSource)
-
+        val viewModelFactory = EditViewModelFactory(dataSource, args.userId)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(EditViewModel::class.java)
 
         val binding = DataBindingUtil.inflate<FragmentEditBinding>(
