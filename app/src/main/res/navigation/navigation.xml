@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_editFragment_to_displayFragment"
             app:destination="@id/displayFragment" />
+        <argument
+            android:name="user_id"
+            app:argType="long" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"

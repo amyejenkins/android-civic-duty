@@ -34,6 +34,11 @@ class TitleFragment : Fragment() {
         binding.titleViewModel = viewModel
         binding.lifecycleOwner = this
 
+        binding.editInfoButton.setOnClickListener{
+            val action = TitleFragmentDirections.actionDisplayFragmentToEditFragment(1)
+            it.findNavController().navigate(action)
+        }
+
         // tell Android that our TitleFragment has a menu
         setHasOptionsMenu(true)
 
