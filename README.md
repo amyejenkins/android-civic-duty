@@ -15,8 +15,9 @@ Android client for displaying local representatives
   ```
   ...civicduty
     |__database
-       |-UserInfo
-       |-UserInfoDao
-       |-UserInfoDatabase
+       |-UserInfo (data class, define db table/structure)
+       |-UserInfoDao (data access object, api for database)
+       |-UserInfoDatabase (database singleton)
   ```
 - (small bits of) Data passed between fragments with [Navigation safe args plugin](https://developer.android.com/guide/navigation/navigation-pass-data)
+- [coroutines](https://developer.android.com/kotlin/coroutines) allow for async processes to happen off main ui thread
